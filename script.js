@@ -88,4 +88,32 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     setClock('timer', deadline);
+
+    //Modal 
+
+    let more = document.querySelector('.more'),
+        ovelay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+        more.addEventListener('click', function() {
+            ovelay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+
+        close.addEventListener('click', function() {
+            ovelay.style.display = 'none';
+            more.classList.remove('more-splash');
+            document.body.style.overflow = '';
+        });
+
+        let descriptionBtn = document.querySelectorAll('.description-btn');
+
+        descriptionBtn.forEach(function (elem){
+            elem.addEventListener('click', function() {
+                ovelay.style.display = 'block';
+                this.classList.add('more-splash');
+                document.body.style.overflow = 'hidden';
+            });
+        });
 });
